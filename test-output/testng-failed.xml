@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Test(failed)">
+    <classes>
+      <class name="com.qa.luma.test.MainPageTest">
+        <methods>
+          <include name="homePageLogoTest"/>
+          <include name="homePageTitleTest"/>
+          <include name="homePageSignInLinkPresentTest"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="homePageCreateAccountLinkPresentTest"/>
+        </methods>
+      </class> <!-- com.qa.luma.test.MainPageTest -->
+      <class name="com.qa.luma.test.CustomerLoginPageTest">
+        <methods>
+          <include name="CustomerLoginPageSubTitleTest"/>
+          <include name="CustomerLoginPageSetUp"/>
+          <include name="tearDown"/>
+          <include name="CustomerLoginTest"/>
+          <include name="setUp"/>
+          <include name="ExistanceOfForgotPasswordLink"/>
+          <include name="CustomerLoginPageTitleTest"/>
+        </methods>
+      </class> <!-- com.qa.luma.test.CustomerLoginPageTest -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
