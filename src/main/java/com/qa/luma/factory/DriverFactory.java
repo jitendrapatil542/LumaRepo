@@ -46,12 +46,36 @@ public class DriverFactory {
 	
 	public Properties init_prop() {
 		Properties prop = new Properties();
-		FileInputStream ip=null;
-		try {
-			ip = new FileInputStream("./src/test/resources/config/config.properties");
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		FileInputStream ip = null;
+		String env = System.getenv("env");
+		
+		if(env==null) {
+			try {
+				ip = new FileInputStream("./src/test/resources/config/config.properties");
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		else {
+			try {
+			switch (env) {
+			case "qa":
+				ip = new FileInputStream("./src/test/resources/config/qa.config.properties");
+				break;
+				
+			case "stg":
+				ip = new FileInputStream("./src/test/resources/config/stg.config.properties");
+				break;
+			default:
+				System.out.println("Please provide valid environment name");
+				break;
+			}
+			}
+			catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		try {
 			prop.load(ip);
